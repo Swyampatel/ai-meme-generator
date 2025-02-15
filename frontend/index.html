@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meme Generator</title>
+</head>
+<body>
+    <h1>AI Meme Generator</h1>
+    
+    <input type="text" id="memeText" placeholder="Enter meme text">
+    <button onclick="generateMeme()">Generate Meme</button>
+
+    <!-- Placeholder Image to Fix Parcel Build Error -->
+    <img id="memeImage" src="https://via.placeholder.com/300" alt="Generated Meme">
+
+    <script>
+        async function generateMeme() {
+            const text = document.getElementById("memeText").value;
+
+            try {
+                const response = await fetch("http://127.0.0.1:5000/generate_meme", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ text })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to generate meme.");
+                }
+
+                const data = await response.json();
+                document.getElementById("memeImage").src = "http://127.0.0.1:5000" + data.meme;
+            } catch (error) {
+                console.error("Error generating meme:", error);
+                alert("Failed to generate meme. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
