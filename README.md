@@ -7,7 +7,7 @@ An AI-powered meme generator that takes text prompts and creates memes using dee
 - **Text-to-Meme Generation** – AI generates a meme from text prompts.
 - **Predefined Meme Templates** – Choose from classic meme formats.
 - **AI-Generated Captions** – NLP-based meme caption generation using NLTK/TextBlob.
-- **Custom Image Uploads** – Users can upload their own images.
+- **Custom Image Uploads** – Users can upload their own image.
 - **Download & Share Option** – Download or share memes.
 
 ## 🏗️ Tech Stack
